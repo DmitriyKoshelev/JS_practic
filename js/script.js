@@ -1,40 +1,35 @@
-"use strict";
+const numberOfFilms = prompt('Сколько фильмов вы уже посмотрели?', '');
 
+const personalMovieDB = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false        
+};
 
-// const answer = +prompt('Вам есть 18?', '18');
-// console.log(answer + 5);
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Один из последних простотренных фильмов?', ''),
+          b = prompt('На сколько оценили его?', '');
+    if (a != null && b != null && a != '' && b != '' && a.length < 50 ) {
+        personalMovieDB.movies [a] = b;
+        console.log('Done');
+    }  else {
+        console.log('Error');
+        i--;
+    }    
+          
+}
 
-// const answers = [];
+if (personalMovieDB.count < 10) {
+    console.log('Просмотренно мало сериалов');
+} else if (personalMovieDB.count > 10 &&  personalMovieDB.count < 30) {
+    console.log('Вы классический любитель');
+} else if (personalMovieDB.count >= 30) {
+    console.log('Повелитель сериалов');
+} else {
+    console.log('Ошибка');
+}
 
-// answers[0] = prompt('Вам есть 18?', '');
-// answers[1] = prompt('Как ваше имя', '');
-// answers[2] = prompt('Сколько вам лет', '');
-
-// document.write(answers);qwe
-
-//Интерполяция:
-
-// const category = 'toys';
-
-// console.log(`https://someurl.com/${category}/5`);
-
-// const user = 'Dmitry';
-
-// alert(`Привет, ${user}`);
-
-//Операторы JS:
-
-// let incr = 10,
-//     decr = 10;
-
-// ++incr;
-// --decr;
-
-// console.log(++incr);
-// console.log(--decr);
-
-const isCheck = false;
-      isClose = false;
-
-console.log(isCheck ||  !isClose);
+console.log(personalMovieDB);
 
